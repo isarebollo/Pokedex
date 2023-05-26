@@ -6,23 +6,25 @@ import { MaterialModule } from './modules/material/material.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PokeTableComponent } from './components/poke-table/poke-table.component';
+import { PokeCardComponent } from './components/poke-card/poke-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
+
     PokemonPageComponent,
     NavComponent,
-    PokeTableComponent
+    PokeTableComponent,
+    PokeCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     MaterialModule,
   ],
   providers: [],

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomePageComponent } from './home-page.component';
+import { PokeCardComponent } from './poke-card.component';
 
-describe('HomePageComponent', () => {
-  let component: HomePageComponent;
-  let fixture: ComponentFixture<HomePageComponent>;
+describe('PokeCardComponent', () => {
+  let component: PokeCardComponent;
+  let fixture: ComponentFixture<PokeCardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePageComponent]
+      declarations: [PokeCardComponent]
     });
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(PokeCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
