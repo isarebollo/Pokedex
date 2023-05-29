@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Results } from 'src/app/models/pokemon.interface';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { IPokemon, Results } from 'src/app/models/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -10,28 +11,53 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class PokemonPageComponent implements OnInit {
 
   pokemon: Results | undefined;
-  randomPokemon: Results | undefined;
-  constructor(private pokemonService: PokemonService) { }
+
+
+  listaPokemon: IPokemon[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
 
-    this.pokemonService.obtenerPokemons().subscribe((response: Results) => {
+    this.pokemonService.getAllPokemon().subscribe((response: Results) => {
 
       this.pokemon = response;
-      console.log(response)
-    }) }
+      this.listaPokemon = this.pokemon.results;
+      console.log(this.listaPokemon);
+    })
+  }
 
   obtenerPokemon() {
-    this.pokemonService.obtenerPokemons().subscribe(
+    this.pokemonService.getAllPokemon().subscribe(
       {
         next: (response: Results) => {
-          console.log('Hola' + response)
+          response.results.forEach((pokemon: IPokemon, index: number) => {
+            this.listaPokemon.push(pokemon);
+          })
+
         },
         error: (error) => console.error(`${error}`),
         complete: () => console.info('Peticion de random contact terminada')
       }
     )
 
+  }
+
+  extractIdFromUrl(url: string): number {
+    const urlParts = url.split('/');
+    return parseInt(urlParts[urlParts.length - 2], 10);
+  }
+
+  volverAHome(pokemon: IPokemon) {
+
+    //navigationExtras tipo de datos de navegacion
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        results: pokemon
+      }
+    }
+    this.router.navigate(['/home'], navigationExtras)
   }
 
 }

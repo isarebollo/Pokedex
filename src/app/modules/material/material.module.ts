@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import {MatCardModule} from '@angular/material/card';
@@ -23,6 +24,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatFormFieldModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule
     
   ]
 })

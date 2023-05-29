@@ -1,12 +1,13 @@
-<p>poke-card works!</p>
+<h1>POKEDEX</h1>
+
+<h1>Pokémon List</h1>
+
+<ng-container *ngIf="listaPokemon;else templateName">
+
+    
 
 
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>1</mat-card-title>
-    <mat-card-title>Pokemon</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Image of a Shiba Inu">
-  </mat-card-content>
-</mat-card>
+</ng-container>
+<ng-template #templateName>
+    <mat-spinner></mat-spinner>
+</ng-template>

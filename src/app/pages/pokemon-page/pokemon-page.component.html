@@ -1,4 +1,9 @@
-<p>pokemon-page works!</p>
+<h1>POKEDEX</h1>
 
+<h1>Pokémon List</h1>
 
-<app-poke-card></app-poke-card>
+<ul>
+    <li *ngFor="let pokemon of listaPokemon">
+        <a [routerLink]="['/pokemon', (pokemon.name)]">{{ pokemon.name }}</a>
+    </li>
+</ul>

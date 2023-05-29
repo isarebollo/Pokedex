@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-detail-page.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   {
     path: 'pokemon',
     component: PokemonPageComponent
+  }, {
+    path: 'pokemon/:name',
+    component: PokemonDetailPageComponent
   }
 
 ];
