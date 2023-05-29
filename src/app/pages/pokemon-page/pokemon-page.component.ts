@@ -23,7 +23,6 @@ export class PokemonPageComponent implements OnInit {
 
       this.pokemon = response;
       this.listaPokemon = this.pokemon.results;
-      console.log(this.listaPokemon);
     })
   }
 
@@ -46,6 +45,10 @@ export class PokemonPageComponent implements OnInit {
   extractIdFromUrl(url: string): number {
     const urlParts = url.split('/');
     return parseInt(urlParts[urlParts.length - 2], 10);
+  }
+  getPokemonImageUrl(pokemon: any): string {
+    const pokemonId = pokemon.url.split('/')[6];
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
   }
 
   volverAHome(pokemon: IPokemon) {

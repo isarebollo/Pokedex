@@ -1,9 +1,22 @@
 <h1>POKEDEX</h1>
 
-<h1>Pokémon List</h1>
 
-<ul>
-    <li *ngFor="let pokemon of listaPokemon">
-        <a [routerLink]="['/pokemon', (pokemon.name)]">{{ pokemon.name }}</a>
-    </li>
-</ul>
+<div *ngFor="let pokemon of listaPokemon">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title><a [routerLink]="['/pokemon', (pokemon.name)]">{{ pokemon.name }}</a></mat-card-title>
+                <mat-card-subtitle>Medium</mat-card-subtitle>
+                <img [src]="getPokemonImageUrl(pokemon)" alt="{{ pokemon.name }}" />
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<!-- LINK PARA IR A DETALLE DE CADA POKEMON -->
+<!-- <a [routerLink]="['/pokemon', (pokemon.name)]">{{ pokemon.name }}</a> -->
