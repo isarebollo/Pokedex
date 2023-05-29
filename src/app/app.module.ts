@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material/material.module';
 
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,6 +12,7 @@ import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.componen
 import { NavComponent } from './components/nav/nav.component';
 import { PokeTableComponent } from './components/poke-table/poke-table.component';
 import { PokeCardComponent } from './components/poke-card/poke-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { PokeCardComponent } from './components/poke-card/poke-card.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

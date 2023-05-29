@@ -6,6 +6,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 @NgModule({
@@ -18,6 +21,9 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    
   ]
 })
 export class MaterialModule { }
