@@ -1,16 +1,15 @@
-<h1>POKEDEX</h1>
-
-
 <div class="pokemon-card-container">
-    
-    <mat-card class="pokemon-card" *ngFor="let pokemon of listaPokemon">
+
+    <mat-card class="pokemon-card" *ngFor="let pokemon of listaPokemon; let i=index">
         <mat-card-title style="text-align: center;">{{ pokemon.name }}
+
         </mat-card-title>
         <img [src]="getPokemonImageUrl(pokemon)" alt="{{ pokemon.name }}" class="pokemon-image" />
 
         <a [routerLink]="['/pokemon', pokemon.name]" mat-button>Detalles</a>
-    </mat-card> 
+    </mat-card>
 </div>
+
 
 
 
