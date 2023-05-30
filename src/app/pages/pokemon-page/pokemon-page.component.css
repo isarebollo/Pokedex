@@ -1,12 +1,12 @@
 .pokemon-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:center;
 }
 
 .pokemon-card {
-    width: 120px;
-    margin: 10px;
+    width: 150px;
+    margin: 1px 1px;
 }
 
 .pokemon-image {
