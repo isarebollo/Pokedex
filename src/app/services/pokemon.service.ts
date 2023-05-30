@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Results } from '../models/pokemon.interface';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getAllPokemon(): Observable<any> {
-    const url = `${this.apiUrl}pokemon?limit=30`;
+    const url = `${this.apiUrl}pokemon?limit=50`;
     return this.http.get<any>(url);
   }
   getPokemonDetailsByName(name: string): Observable<any> {

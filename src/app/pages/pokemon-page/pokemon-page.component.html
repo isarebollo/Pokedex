@@ -1,19 +1,4 @@
 <div class="pokemon-card-container">
+    <app-poke-card *ngFor="let pokemon of listaPokemon" [pokemon]="pokemon"></app-poke-card>
 
-    <mat-card class="pokemon-card" *ngFor="let pokemon of listaPokemon; let i=index">
-        <mat-card-title style="text-align: center;">{{ pokemon.name }}
-
-        </mat-card-title>
-        <img [src]="getPokemonImageUrl(pokemon)" alt="{{ pokemon.name }}" class="pokemon-image" />
-
-        <a [routerLink]="['/pokemon', pokemon.name]" mat-button>Detalles</a>
-    </mat-card>
 </div>
-
-
-
-
-
-
-<!-- LINK PARA IR A DETALLE DE CADA POKEMON -->
-<!-- <a [routerLink]="['/pokemon', (pokemon.name)]">{{ pokemon.name }}</a> -->
