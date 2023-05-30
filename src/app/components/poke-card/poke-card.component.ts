@@ -15,4 +15,7 @@ export class PokeCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
+  
 }

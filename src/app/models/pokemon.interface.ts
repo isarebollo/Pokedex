@@ -14,6 +14,7 @@ export interface Results {
 
 
 export interface IPokemon {
+    url: any;
     id: number;
     name: string;
     base_experience: number;
