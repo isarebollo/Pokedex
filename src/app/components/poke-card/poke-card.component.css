@@ -11,3 +11,95 @@
 mat-card-title {
     text-align: center;
 }
+
+.pokemon-card {
+    position: relative;
+}
+
+/* .pokemon-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    color: #fff;
+    font-weight: bold;
+}
+
+.bug {
+    background-color: #a8b820;
+}
+
+.dark {
+    background-color: #705848;
+}
+
+.dragon {
+    background-color: #7038f8;
+}
+
+.electric {
+    background-color: #f8d030;
+}
+
+.fairy {
+    background-color: #ee99ac;
+}
+
+.fighting {
+    background-color: #c03028;
+}
+
+.fire {
+    background-color: #f08030;
+}
+
+.flying {
+    background-color: #a890f0;
+}
+
+.ghost {
+    background-color: #705898;
+}
+
+.grass {
+    background-color: #78c850;
+}
+
+.ground {
+    background-color: #e0c068;
+}
+
+.ice {
+    background-color: #98d8d8;
+}
+
+.normal {
+    background-color: #a8a878;
+}
+
+.poison {
+    background-color: #a040a0;
+}
+
+.psychic {
+    background-color: #f85888;
+}
+
+.rock {
+    background-color: #b8a038;
+}
+
+.steel {
+    background-color: #b8b8d0;
+}
+
+.water {
+    background-color: #6890f0;
+}
+
+.pokemon-icon {
+    margin-right: 5px;
+    background-color: black;
+} */

@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PokemonService {
+  getPokemonType(pokemonId: number) {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'https://pokeapi.co/api/v2/';
 
   constructor(private http: HttpClient) { }

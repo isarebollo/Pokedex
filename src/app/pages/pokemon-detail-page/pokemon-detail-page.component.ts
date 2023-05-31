@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Results } from 'src/app/models/pokemon.interface';
+
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class PokemonDetailPageComponent implements OnInit {
 
   pokemonName!: string;
   pokemonDetails: any;
+  pokemon: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,4 +36,7 @@ export class PokemonDetailPageComponent implements OnInit {
       }
     );
   }
+
+  
+  
 }

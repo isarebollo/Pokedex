@@ -1,5 +1,6 @@
+
 <!-- NOMBRE CENTRADO -->
-<div>
+<div >
     <h1 class="pokemon-name">{{ pokemonDetails.name.toUpperCase()}}</h1>
 
 </div>
@@ -11,6 +12,9 @@
         <p>Id: {{pokemonDetails.id}}</p>
         <p>Height: {{ pokemonDetails.height }}</p>
         <p>Weight: {{ pokemonDetails.weight }}</p>
+        <p>Base Experiencie: {{ pokemonDetails.base_experience }}</p>
+        <p>Type: {{ pokemonDetails.types[0].type.name}} & {{ pokemonDetails.types[1].type.name}}</p>
+
     </div>
 
     <!-- imagen central -->
