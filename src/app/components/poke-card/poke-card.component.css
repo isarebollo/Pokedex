@@ -4,8 +4,9 @@
 }
 
 .pokemon-image {
-    width: 100%;
+    width:70%;
     height: auto;
+    margin: auto;
 }
 
 mat-card-title {

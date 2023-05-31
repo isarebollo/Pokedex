@@ -1,7 +1,7 @@
 .pokemon-detail-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 8%;
     height: 100vh;
 }
 
@@ -9,6 +9,7 @@
     font-size: xx-large;
     text-align: center;
 }
-.img-fluid{
-    width: 400px;
+
+.img-fluid {
+    width: 300px;
 }

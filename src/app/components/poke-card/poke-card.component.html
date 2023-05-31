@@ -1,8 +1,7 @@
 <mat-card class="pokemon-card">
-
-
     <mat-card-subtitle>{{ extractIdFromUrl(pokemon.url) }}</mat-card-subtitle>
     <mat-card-title>{{ pokemon.name.toUpperCase() }}</mat-card-title>
-    <img [src]="getPokemonImageUrl()" alt="{{ pokemon.name }}" class="pokemon-image" />
-    <a [routerLink]="['/pokemon', extractIdFromUrl(pokemon.url)]" mat-button>View Details</a>
+    <img class="pokemon-image" [src]="'assets/images/pokemon-images/'+extractIdFromUrl(pokemon.url)+'.png'"
+        [alt]="pokemon.name" />
+    <a [routerLink]="['/pokemon', extractIdFromUrl(pokemon.url)]" mat-button>Info</a>
 </mat-card>
