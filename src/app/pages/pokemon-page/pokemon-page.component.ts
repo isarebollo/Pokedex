@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPokemon, Results } from 'src/app/models/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -49,18 +49,6 @@ export class PokemonPageComponent implements OnInit {
   getPokemonImageUrl(pokemon: any): string {
     const pokemonId = pokemon.url.split('/')[6];
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-  }
-
-  volverAHome(pokemon: IPokemon) {
-
-    //navigationExtras tipo de datos de navegacion
-
-    let navigationExtras: NavigationExtras = {
-      state: {
-        results: pokemon
-      }
-    }
-    this.router.navigate(['/home'], navigationExtras)
   }
 
 }
