@@ -41,6 +41,7 @@ export class PokemonDetailPageComponent implements OnInit {
 
   private mapPokemonData(data: any): any {//mapeo de datos para que el html sea menos lioso
     const mappedPokemon = {
+      id:data.id,
       name: data.name,
       height: data.height,
       weight: data.weight,
