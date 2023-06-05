@@ -13,19 +13,9 @@ export class PokeCardComponent implements OnInit {
 
   @Input() pokemon!: IPokemonDetail;
 
+
   constructor() { }
   ngOnInit(): void {
-    console.log(this.pokemon)
+console.log(this.pokemon)
   }
-
-  public extractIdFromUrl(url: string): string {
-    const segments = url.split('/');
-    return segments[segments.length - 2];
-
-  }
-  
-
- 
- 
- 
 }

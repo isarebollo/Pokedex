@@ -3,9 +3,8 @@ export interface Results {
     results: IPokemonDetail[];
 }
 
-export interface IPokemonDetail {
- 
-    url: any;
+export interface IPokemonDetail {  
+    url: string;
     id: number;
     name: string,
     types: Type[];

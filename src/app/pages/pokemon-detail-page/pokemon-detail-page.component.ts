@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPokemonDetail } from 'src/app/models/external/pokemonDetail.interface';
 
@@ -10,6 +10,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemon-detail-page.component.css']
 })
 export class PokemonDetailPageComponent implements OnInit {
+
 
   pokemonName: string = '';
   pokemonDetails: IPokemonDetail[] = [];
@@ -28,7 +29,7 @@ export class PokemonDetailPageComponent implements OnInit {
   }
 
   getPokemonDetails(): void {
-    this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe({
+    this.pokemonService.getPokemonDetailsById(this.pokemonName).subscribe({
       next: (data) => {
         this.pokemonDetails = data;
         this.pokemon = this.mapPokemonData(data);//mapeamos los datos para mostrar solo con un nombre. 
@@ -41,7 +42,7 @@ export class PokemonDetailPageComponent implements OnInit {
 
   private mapPokemonData(data: any): any {//mapeo de datos para que el html sea menos lioso
     const mappedPokemon = {
-      id:data.id,
+      id: data.id,
       name: data.name,
       height: data.height,
       weight: data.weight,
@@ -53,3 +54,6 @@ export class PokemonDetailPageComponent implements OnInit {
   }
 
 }
+
+
+

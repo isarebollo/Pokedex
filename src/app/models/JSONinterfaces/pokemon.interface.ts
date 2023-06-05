@@ -11,7 +11,7 @@ export interface Results {
     results: IPokemon[];
 }
 export interface IPokemon {
-    pokemonType: any;
+    
     url: any;
     id: number;
     name: string;

@@ -9,19 +9,18 @@ import { IPokemonDetail } from '../models/external/pokemonDetail.interface';
   providedIn: 'root'
 })
 export class PokemonService {
-  getPokemonType(pokemonId: number) {
-    throw new Error('Method not implemented.');
-  }
+
+ 
   private apiUrl = 'https://pokeapi.co/api/v2/';
 
   constructor(private http: HttpClient) { }
 
   getAllPokemon(): Observable<Results> {// devuelto como un arreglo de Ipokemon
-    const url = `${this.apiUrl}pokemon?limit=10`;
+    const url = `${this.apiUrl}pokemon`;
     return this.http.get<any>(url);
   }
-  getPokemonDetailsByName(name: string): Observable<IPokemonDetail[]> {//  devuelto como un arreglo de IpokemonDetail
-    const url = `${this.apiUrl}pokemon/${name}`;
+  getPokemonDetailsById(id: string): Observable<IPokemonDetail[]> {//  devuelto como un arreglo de IpokemonDetail
+    const url = `${this.apiUrl}pokemon/${id}`;
     return this.http.get<any>(url);
   }
 
