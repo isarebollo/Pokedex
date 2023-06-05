@@ -1,45 +1,29 @@
-<!-- NOMBRE CENTRADO -->
 <div>
-    <h1 class="pokemon-name">{{ pokemonDetails.name.toUpperCase()}}</h1>
-
+    <h1 class="pokemon-name">{{ pokemon.name.toUpperCase() }}</h1>
 </div>
-<!-- INFORMACION CENTRAL -->
 
 <div class="pokemon-detail-container">
-    <!-- LADO DERECHO -->
     <div>
-        <p>Id: {{pokemonDetails.id}}</p>
-        <p>Height: {{ pokemonDetails.height }}</p>
-        <p>Weight: {{ pokemonDetails.weight }}</p>
-        <p>Base Experiencie: {{ pokemonDetails.base_experience }}</p>
-        <!-- <p>Type: {{ pokemonDetails.types[0].type.name}} & {{ pokemonDetails.types[1].type.name}}</p> -->
-
+        <p>Height: {{ pokemon.height }}</p>
+        <p>Weight: {{ pokemon.weight }}</p>
+        <p>Base Experience: {{ pokemon.base_experience }}</p>
+        <p>Type:
+            <ng-container *ngFor="let type of pokemon.types; let last = last">
+                {{ type.type.name }}
+                <ng-container *ngIf="!last"> & </ng-container>
+            </ng-container>
+        </p>
     </div>
 
-    <!-- imagen central -->
     <div>
-
-        <img class="img-fluid mx-auto d-block " [src]="'assets/images/pokemon-images/'+pokemonDetails.id+'.png'"
-            alt="{{ pokemonDetails.name }}">
+        <img class="img-fluid mx-auto d-block" [src]="'assets/images/pokemon-images/' + pokemon.id + '.png'"
+            [alt]="pokemon.name">
     </div>
-    <!-- lado izquierdo -->
+
     <div>
         <h3>Abilities:</h3>
         <ul>
-            <li *ngFor="let ability of pokemonDetails.abilities">
-                {{ ability.ability.name }}
-            </li>
+            <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
         </ul>
     </div>
-
 </div>
-
-
-
-
-<!-- <div class="pokemon-detail-container" *ngIf="pokemonDetails"> -->
-
-
-
-
-<!-- </div> -->

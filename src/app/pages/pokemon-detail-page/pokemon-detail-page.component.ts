@@ -1,5 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IPokemonDetail } from 'src/app/models/external/pokemonDetail.interface';
 
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -10,8 +11,8 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonDetailPageComponent implements OnInit {
 
-  pokemonName!: string;
-  pokemonDetails: any;
+  pokemonName: string = '';
+  pokemonDetails: IPokemonDetail[] = [];
   pokemon: any;
 
   constructor(
@@ -27,16 +28,27 @@ export class PokemonDetailPageComponent implements OnInit {
   }
 
   getPokemonDetails(): void {
-    this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe(
-      (data) => {
+    this.pokemonService.getPokemonDetailsByName(this.pokemonName).subscribe({
+      next: (data) => {
         this.pokemonDetails = data;
+        this.pokemon = this.mapPokemonData(data);//mapeamos los datos para mostrar solo con un nombre. 
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
       }
-    );
+    });
   }
 
-  
-  
+  private mapPokemonData(data: any): any {//mapeo de datos para que el html sea menos lioso
+    const mappedPokemon = {
+      name: data.name,
+      height: data.height,
+      weight: data.weight,
+      base_experience: data.base_experience,
+      types: data.types,
+      abilities: data.abilities
+    };
+    return mappedPokemon;
+  }
+
 }

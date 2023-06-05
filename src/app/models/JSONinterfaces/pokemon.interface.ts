@@ -9,11 +9,9 @@
 export interface Results {
     forEach(arg0: (result: Results, index: number) => void): unknown;
     results: IPokemon[];
-
 }
-
-
 export interface IPokemon {
+    pokemonType: any;
     url: any;
     id: number;
     name: string;

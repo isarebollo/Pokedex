@@ -3,6 +3,6 @@
     <mat-card-title>{{ pokemon.name.toUpperCase() }}</mat-card-title>
     <img class="pokemon-image" [src]="'assets/images/pokemon-images/'+extractIdFromUrl(pokemon.url)+'.png'"
         [alt]="pokemon.name" />
-    <a [routerLink]="['/pokemon', extractIdFromUrl(pokemon.url)]" mat-button [ngClass]="getPokemonTypeClass()">Info</a>
-
+    <a [routerLink]="['/pokemon', extractIdFromUrl(pokemon.url)]" mat-button>Info</a>
+   
 </mat-card>

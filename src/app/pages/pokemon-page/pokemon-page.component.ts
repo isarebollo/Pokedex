@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPokemon, Results } from 'src/app/models/pokemon.interface';
+import { IPokemon } from 'src/app/models/JSONinterfaces/pokemon.interface';
+import { IPokemonDetail, Results } from 'src/app/models/external/pokemonDetail.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -10,45 +11,24 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonPageComponent implements OnInit {
 
-  pokemon: Results | undefined;
-
-
-  listaPokemon: IPokemon[] = [];
+  listaPokemon: IPokemonDetail[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
 
-    this.pokemonService.getAllPokemon().subscribe((response: Results) => {
-
-      this.pokemon = response;
-      this.listaPokemon = this.pokemon.results;
-    })
-  }
-
-  obtenerPokemon() {
-    this.pokemonService.getAllPokemon().subscribe(
-      {
-        next: (response: Results) => {
-          response.results.forEach((pokemon: IPokemon, index: number) => {
-            this.listaPokemon.push(pokemon);
-          })
-
-        },
-        error: (error) => console.error(`${error}`),
-        complete: () => console.info('Peticion de random contact terminada')
-      }
-    )
+    this.inicializarListaPokemon()
 
   }
+  inicializarListaPokemon() {
+    this.pokemonService.getAllPokemon().subscribe({
+      next: (data: Results) => {
+        this.listaPokemon = data.results;
+        console.log(this.listaPokemon)
+      },
+      error: (error) => console.error(`${error}`),
+      complete: () => console.info('Peticion de pokemons terminada')
 
-  extractIdFromUrl(url: string): number {
-    const urlParts = url.split('/');
-    return parseInt(urlParts[urlParts.length - 2], 10);
+    });
   }
-  getPokemonImageUrl(pokemon: any): string {
-    const pokemonId = pokemon.url.split('/')[6];
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-  }
-
 }
