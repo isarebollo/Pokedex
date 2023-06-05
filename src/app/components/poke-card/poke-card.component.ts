@@ -23,34 +23,9 @@ export class PokeCardComponent implements OnInit {
     return segments[segments.length - 2];
 
   }
-  getPokemonTypeClass(): string {
-    if (this.pokemon && this.pokemon.url) {
-      const pokemonNumber = this.getPokemonNumberFromUrl(this.pokemon.url);
-      const pokemonType = this.getTypesByPokemonNumber(pokemonNumber);
-      return `pokemon-type-${pokemonType.toLowerCase()}`;
-    }
-    return 'pokemon-type-default';
-  }
+  
 
-  getPokemonNumberFromUrl(url: string): string {
-    const urlParts = url.split('/');
-    return urlParts[urlParts.length - 2];
-  }
-
-  getTypesByPokemonNumber(pokemonNumber: string): string {
-    const pokemonTypes: { [key: string]: string } = {
-      '1': 'grass',
-      '2': 'grass',
-      '3': 'grass',
-      '4': 'fire',
-      '5': 'fire',
-      '6': 'fire',
-      '7': 'water',
-      '8': 'water',
-      '9': 'water',
-      '10': 'bug'
-      // Agrega más tipos de Pokémon según sea necesario
-    };
-    return pokemonTypes[pokemonNumber] || 'default';
-  }
+ 
+ 
+ 
 }

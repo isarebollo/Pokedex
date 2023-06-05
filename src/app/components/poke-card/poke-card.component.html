@@ -1,12 +1,9 @@
 <mat-card class="pokemon-card">
-<div>
-    <button mat-mini-fab [ngClass]="getPokemonTypeClass()">
-        <img alt="{{ pokemon.types && pokemon.types.length > 0 ? pokemon.types[0].type.name : '' }}"
-             [src]="pokemon.types && pokemon.types.length > 0 ? 'assets/type-icons/png/' + pokemon.types[0].type.name + '.png' : ''">
-      </button>
-       
-</div>
-   
+    <div>
+        <button mat-mini-fab></button>
+
+    </div>
+
 
     <mat-card-subtitle>{{ extractIdFromUrl(pokemon.url) }}</mat-card-subtitle>
     <mat-card-title>{{ pokemon.name.toUpperCase() }}</mat-card-title>
