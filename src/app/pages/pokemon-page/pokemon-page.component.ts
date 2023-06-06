@@ -40,7 +40,7 @@ export class PokemonPageComponent implements OnInit {
     Promise.all(pokemonPromises)
       .then((pokemonDetails) => {
         this.listaPokemon = pokemonDetails.filter((pokemon) => pokemon !== undefined) as IPokemonDetail[];
-        console.log(this.listaPokemon);
+        // console.log(this.listaPokemon);
       })
       .catch((error) => console.error(error))
       .finally(() => {
