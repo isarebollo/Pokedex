@@ -9,11 +9,12 @@
 
             <ng-container *ngFor="let type of pokemon.types; let last = last">
                 <div>
-                    <img class="pokemon-type" [src]="'assets/images/type-icons/png/'+(type.type.name)+'.png'"
-                        [alt]="type.type.name" />
+                    <img class="img-pokemon-type" [src]="'assets/images/type-icons/png/'+(type.type.name)+'.png'" [alt]="type.type.name"
+                        [ngClass]="'pokemon-type-'+ type.type.name.toLowerCase()" />
                 </div>
             </ng-container>
         </div>
     </div>
-    <img class="pokemon-image" [src]="'assets/images/pokemon-images/'+(pokemon.id)+'.png'" [alt]="pokemon.name" />
+    <img class="pokemon-card-img mx-auto" [src]="'assets/images/pokemon-images/'+(pokemon.id)+'.png'"
+        [alt]="pokemon.name" />
 </div>
