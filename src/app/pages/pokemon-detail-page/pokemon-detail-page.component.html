@@ -1,31 +1,156 @@
-<div>
-    <h1 class="pokemon-name">{{ pokemon.name.toUpperCase()}}</h1>
-
-</div>
-
-<div class="pokemon-detail-container">
-    <div>
-        <p>Height: {{ pokemon.height }}</p>
-        <p>Weight: {{ pokemon.weight }}</p>
-        <p>Base Experience: {{ pokemon.base_experience }}</p>
-        <p>Type:
-            <ng-container *ngFor="let type of pokemon.types; let last = last">
-                {{ type.type.name }}
-                <ng-container *ngIf="!last"> & </ng-container> 
-                <!-- para enumerar los typos si hay mas de uno.  -->
-            </ng-container>
-        </p>
+<div class="container">
+    <div class="text-center text-uppercase">
+        <h1 class="heading">{{ pokemon.name.toUpperCase() }}</h1>
     </div>
 
-    <div>
-        <img class="img-fluid mx-auto d-block" [src]="'assets/images/pokemon-images/'+pokemon.id+'.png'"
-            [alt]="pokemon.name">
-    </div>
+    <div class="row justify-content-center">
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-lg-3 col-md-2 my-auto">
+            <div class="inner">
+                <table class="table">
+                    <tr>
+                        <td class="text-center table-title ">ID</td>
+                        <td>#{{ pokemon.id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center table-title ">Height</td>
+                        <td>{{ heightInMetres + "m ( " + heightInFeetInches + " )" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center table-title ">Weight</td>
+                        <td>{{ weightInKgs + "kg ( " + weightInPounds + "lbs. )" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center table-title ">Type</td>
+                        <td>
+                            <span>
+                                <ng-container *ngFor="let type of pokemon.types; let last = last">
+                                    <span>{{ type.type.name }}</span>
+                                    <ng-container *ngIf="!last"> & </ng-container>
+                                </ng-container>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center table-title">Abilities</td>
+                        <td>
+                            <div class="row">
+                                <div class="text-capitalize " *ngFor="let ability of pokemon.abilities">{{
+                                    ability.ability.name }}</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
 
-    <div>
-        <h3>Abilities:</h3>
-        <ul>
-            <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
-        </ul>
+            </div>
+        </div>
+
+        <!-- COLUMNA CENTRAL (IMAGEN POKEMON) -->
+        <div class="col-lg-6 col-md-8 my-auto">
+            <div class="inner d-flex justify-content-center">
+                <div class="image-pokemon">
+                    <div class="image-container">
+                        <img class="image-pokemon" [src]="'assets/images/pokemon-images/' + pokemon.id + '.png'"
+                            [alt]="pokemon.name">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="col-lg-3 col-md-2 statDiv my-auto">
+            <div class="inner">
+                <table class="table table-borderless">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="btn rounded-pill table-title ">Base
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn rounded-pill table-title ">Min
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn rounded-pill table-title ">Max
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">HP</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                    [ngClass]="pokemon.color">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Attack</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Defence</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Sp. Attack</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Sp. Defence</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Speed</td>
+                        <td colspan="3">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
+                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-right table-title " style="white-space:nowrap;">Total</td>
+                        <td colspan="3">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

@@ -11,11 +11,13 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonDetailPageComponent implements OnInit {
 
-
+  heightInMetres: any;
+  heightInFeetInches: any;
+  weightInKgs: any;
+  weightInPounds: any;
   pokemonName: string = '';
   pokemonDetails: IPokemonDetail[] = [];
   pokemon: any;
-
   constructor(
     private route: ActivatedRoute,
     private pokemonService: PokemonService
@@ -32,7 +34,15 @@ export class PokemonDetailPageComponent implements OnInit {
     this.pokemonService.getPokemonDetailsById(this.pokemonName).subscribe({
       next: (data) => {
         this.pokemonDetails = data;
-        this.pokemon = this.mapPokemonData(data);//mapeamos los datos para mostrar solo con un nombre. 
+        this.pokemon = this.mapPokemonData(data);
+        this.heightInMetres = (this.pokemon.height * 0.1).toFixed(1);
+        this.heightInFeetInches =
+          Math.floor(this.heightInMetres * 3.2808) +
+          '"' +
+          Math.round(((this.heightInMetres * 3.2808) % 1) * 12) +
+          '\'';
+        this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
+        this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
       },
       error: (error) => {
         console.log(error);
@@ -52,6 +62,10 @@ export class PokemonDetailPageComponent implements OnInit {
     };
     return mappedPokemon;
   }
+
+
+
+
 
 }
 

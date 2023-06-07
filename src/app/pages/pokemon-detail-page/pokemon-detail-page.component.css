@@ -1,20 +1,22 @@
-.pokemon-detail-container {
-    display: flex;
-    justify-content: center;
-    margin: 8%;
-    height: 100vh;
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    max-width: max-content;
+
 }
 
-.pokemon-name {
+.table-title {
+
+    width: 50%;
+    font-size: medium;
+    color: #6d6d6d;
+    font-weight: bold;
+}
+
+.heading {
     font-size: xx-large;
-    text-align: center;
+    color: #6d6d6d;
 }
-
-.img-fluid {
-    width: 300px;
-}
-
-
 
 .pokemon-type-bug {
     background-color: #a8b820;
