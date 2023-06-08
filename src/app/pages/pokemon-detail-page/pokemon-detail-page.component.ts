@@ -27,6 +27,7 @@ export class PokemonDetailPageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.pokemonName = params['name'];
       this.getPokemonDetails();
+
     });
   }
 
@@ -58,7 +59,8 @@ export class PokemonDetailPageComponent implements OnInit {
       weight: data.weight,
       base_experience: data.base_experience,
       types: data.types,
-      abilities: data.abilities
+      abilities: data.abilities,
+      stats: data.stats,
     };
     return mappedPokemon;
   }

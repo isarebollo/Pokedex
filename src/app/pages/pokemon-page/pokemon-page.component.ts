@@ -19,6 +19,7 @@ export class PokemonPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.inicializarListaPokemon()
+    
   }
 
   inicializarListaPokemon() {

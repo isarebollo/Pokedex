@@ -7,7 +7,7 @@
         <!-- COLUMNA IZQUIERDA -->
         <div class="col-lg-3 col-md-2 my-auto">
             <div class="inner">
-                <table class="table">
+                <table class="table red-border text-capitalize">
                     <tr>
                         <td class="text-center table-title ">ID</td>
                         <td>#{{ pokemon.id }}</td>
@@ -48,7 +48,7 @@
         <!-- COLUMNA CENTRAL (IMAGEN POKEMON) -->
         <div class="col-lg-6 col-md-8 my-auto">
             <div class="inner d-flex justify-content-center">
-                <div class="image-pokemon">
+                <div>
                     <div class="image-container">
                         <img class="image-pokemon" [src]="'assets/images/pokemon-images/' + pokemon.id + '.png'"
                             [alt]="pokemon.name">
@@ -60,94 +60,30 @@
         <!-- COLUMNA DERECHA -->
         <div class="col-lg-3 col-md-2 statDiv my-auto">
             <div class="inner">
-                <table class="table table-borderless">
+                <table class="table text-capitalize red-border ">
                     <tr>
-                        <td></td>
-                        <td>
-                            <button class="btn rounded-pill table-title ">Base
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn rounded-pill table-title ">Min
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn rounded-pill table-title ">Max
-                            </button>
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[0].stat.name}}</td>
+                        <td>{{ pokemon.stats[0].base_stat }}</td>
                     </tr>
                     <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">HP</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                    [ngClass]="pokemon.color">
-
-                                </div>
-                            </div>
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[1].stat.name}}</td>
+                        <td>{{ pokemon.stats[1].base_stat }}</td>
                     </tr>
                     <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Attack</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
-
-                                </div>
-                            </div>
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[2].stat.name}}</td>
+                        <td>{{ pokemon.stats[2].base_stat }}</td>
                     </tr>
                     <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Defence</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
-
-                                </div>
-                            </div>
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[3].stat.name}}</td>
+                        <td>{{ pokemon.stats[3].base_stat }}</td>
                     </tr>
                     <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Sp. Attack</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
-
-                                </div>
-                            </div>
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[4].stat.name}}</td>
+                        <td>{{ pokemon.stats[4].base_stat }}</td>
                     </tr>
                     <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Sp. Defence</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
-
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Speed</td>
-                        <td colspan="3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated rounded-sm"
-                                    role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255">
-
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-right table-title " style="white-space:nowrap;">Total</td>
-                        <td colspan="3">
-
-                        </td>
+                        <td class="text-center table-title">{{pokemon.stats[5].stat.name.toUpperCase()}}</td>
+                        <td>{{ pokemon.stats[5].base_stat }}</td>
                     </tr>
                 </table>
             </div>

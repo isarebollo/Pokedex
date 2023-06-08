@@ -2,9 +2,15 @@ table {
     border-collapse: separate;
     border-spacing: 0 10px;
     max-width: max-content;
-
+    font-size: medium;
+    
 }
-
+/* ELIMINAR AL TERMINAR */
+.red-border {
+    border: 2px solid red;
+    
+    
+}
 .table-title {
 
     width: 50%;
@@ -13,9 +19,13 @@ table {
     font-weight: bold;
 }
 
+
 .heading {
     font-size: xx-large;
     color: #6d6d6d;
+}
+.image-pokemon{
+    width: 350px;
 }
 
 .pokemon-type-bug {
