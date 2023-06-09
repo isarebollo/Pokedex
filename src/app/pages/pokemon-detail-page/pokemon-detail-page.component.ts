@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPokemonDetail } from 'src/app/models/external/pokemonDetail.interface';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -19,8 +20,7 @@ export class PokemonDetailPageComponent implements OnInit {
   pokemonDetails: IPokemonDetail[] = [];
   pokemon: any;
   constructor(
-    private route: ActivatedRoute,
-    private pokemonService: PokemonService
+    private route: ActivatedRoute, private pokemonService: PokemonService, private navbarService: NavbarService
   ) { }
 
   ngOnInit(): void {
@@ -28,10 +28,12 @@ export class PokemonDetailPageComponent implements OnInit {
       this.pokemonName = params['name'];
       this.getPokemonDetails();
 
+
     });
   }
 
   getPokemonDetails(): void {
+
     this.pokemonService.getPokemonDetailsById(this.pokemonName).subscribe({
       next: (data) => {
         this.pokemonDetails = data;
@@ -44,12 +46,18 @@ export class PokemonDetailPageComponent implements OnInit {
           '\'';
         this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
         this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+        
+        const pokemonTypes = this.pokemon.types.map((type: any) => type.type.name);
+        const navbarColor = this.pokemonService.getNavbarColorByPokemonTypes(pokemonTypes);
+        this.navbarService.setNavbarColor(navbarColor);
       },
       error: (error) => {
         console.log(error);
       }
     });
   }
+ 
+
 
   private mapPokemonData(data: any): any {//mapeo de datos para que el html sea menos lioso
     const mappedPokemon = {
@@ -64,8 +72,6 @@ export class PokemonDetailPageComponent implements OnInit {
     };
     return mappedPokemon;
   }
-
-
 
 
 
