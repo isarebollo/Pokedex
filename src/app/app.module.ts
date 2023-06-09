@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
 import { NavComponent } from './components/nav/nav.component';
-import { PokeTableComponent } from './components/poke-table/poke-table.component';
+
 import { PokeCardComponent } from './components/poke-card/poke-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-detail-page.component';
@@ -21,7 +21,6 @@ import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-
 
     PokemonPageComponent,
     NavComponent,
-    PokeTableComponent,
     PokeCardComponent,
     PokemonDetailPageComponent
   ],
