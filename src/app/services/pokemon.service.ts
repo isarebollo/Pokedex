@@ -28,14 +28,39 @@ export class PokemonService {
     let navbarColor = '';
 
     // Asignar un color de fondo según los tipos de Pokémon
-    if (types.includes('fire')) {
-      navbarColor = 'type-fire';
-    } else if (types.includes('water')) {
-      navbarColor = 'type-water';
+    if (types.includes('bug')) {
+      navbarColor = 'type-bug';
+    } else if (types.includes('dark')) {
+      navbarColor = 'type-dark';
+    } else if (types.includes('dragon')) {
+      navbarColor = 'type-dragon';
+    } else if (types.includes('electric')) {
+      navbarColor = 'type-electric';
+    } else if (types.includes('fairy')) {
+      navbarColor = 'type-fairy';
+    } else if (types.includes('fighting')) {
+      navbarColor = 'type-fighting';
+    } else if (types.includes('ghost')) {
+      navbarColor = 'types-ghost';
     } else if (types.includes('grass')) {
       navbarColor = 'type-grass';
-    } else if (types.includes('electric')) {
-      navbarColor = 'bg-yellow';
+    } else if (types.includes('ground')) {
+      navbarColor = 'type-ground';
+    } else if (types.includes('ice')) {
+      navbarColor = 'type-ice';
+    } else if (types.includes('normal')) {
+      navbarColor = 'type-normal';
+    } else if (types.includes('poison')) {
+      navbarColor = 'type-poison';
+    } else if (types.includes('psychic')) {
+      navbarColor = 'type-psychic';
+    } else if (types.includes('rock')) {
+      navbarColor = 'type-rock';
+    } else if (types.includes('steel')) {
+      navbarColor = 'type-steel';
+    } else if (types.includes('water')) {
+      navbarColor = 'type-water';
+
     } else {
       navbarColor = 'white-nav'; // Color predeterminado si no coincide con ningún tipo conocido
     }
