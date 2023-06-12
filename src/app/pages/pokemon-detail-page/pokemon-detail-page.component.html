@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="text-center text-uppercase">
+    <div class="text-center text-uppercase mt-4">
         <h1 class="heading">{{ pokemon.name.toUpperCase() }}</h1>
     </div>
 
@@ -7,7 +7,7 @@
         <!-- COLUMNA IZQUIERDA -->
         <div class="col-lg-3 col-md-2 my-auto">
             <div class="inner">
-                <table class="table red-border text-capitalize">
+                <table class="table  text-capitalize">
                     <tr>
                         <td class="text-center table-title ">ID</td>
                         <td>#{{ pokemon.id }}</td>
@@ -60,30 +60,60 @@
         <!-- COLUMNA DERECHA -->
         <div class="col-lg-3 col-md-2 statDiv my-auto">
             <div class="inner">
-                <table class="table text-capitalize red-border ">
+                <table class="table text-capitalize ">
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[0].stat.name}}</td>
-                        <td>{{ pokemon.stats[0].base_stat }}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[0].base_stat">
+                                {{ pokemon.stats[0].base_stat }}</div>
+                        </div>
                     </tr>
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[1].stat.name}}</td>
-                        <td>{{ pokemon.stats[1].base_stat }}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[1].base_stat">
+                                {{ pokemon.stats[1].base_stat }}</div>
+                        </div>
                     </tr>
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[2].stat.name}}</td>
-                        <td>{{ pokemon.stats[2].base_stat }}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[2].base_stat">
+                                {{ pokemon.stats[2].base_stat }}</div>
+                        </div>
                     </tr>
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[3].stat.name}}</td>
-                        <td>{{ pokemon.stats[3].base_stat }}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[3].base_stat">
+                                {{ pokemon.stats[3].base_stat }}</div>
+                        </div>
                     </tr>
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[4].stat.name}}</td>
-                        <td>{{ pokemon.stats[4].base_stat }}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[4].base_stat">
+                                {{ pokemon.stats[4].base_stat }}</div>
+                        </div>
                     </tr>
                     <tr>
-                        <td class="text-center table-title">{{pokemon.stats[5].stat.name.toUpperCase()}}</td>
-                        <td>{{ pokemon.stats[5].base_stat }}</td>
+                        <td class="text-center table-title">{{pokemon.stats[5].stat.name}}</td>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [style.width.%]="pokemon.stats[5].base_stat">
+                                {{ pokemon.stats[5].base_stat }}</div>
+                        </div>
                     </tr>
                 </table>
             </div>

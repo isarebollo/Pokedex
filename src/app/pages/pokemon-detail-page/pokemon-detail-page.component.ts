@@ -19,6 +19,10 @@ export class PokemonDetailPageComponent implements OnInit {
   pokemonName: string = '';
   pokemonDetails: IPokemonDetail[] = [];
   pokemon: any;
+  
+  stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
+
+
   constructor(
     private route: ActivatedRoute, private pokemonService: PokemonService, private navbarService: NavbarService
   ) { }
@@ -45,21 +49,21 @@ export class PokemonDetailPageComponent implements OnInit {
           Math.round(((this.heightInMetres * 3.2808) % 1) * 12) +
           '\'';
         this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
-        this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+        this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);      
         
         const pokemonTypes = this.pokemon.types.map((type: any) => type.type.name);
         const navbarColor = this.pokemonService.getNavbarColorByPokemonTypes(pokemonTypes);
         this.navbarService.setNavbarColor(navbarColor);
+
+       
       },
       error: (error) => {
         console.log(error);
       }
     });
   }
- 
 
-
-  private mapPokemonData(data: any): any {//mapeo de datos para que el html sea menos lioso
+  private mapPokemonData(data: any): any {
     const mappedPokemon = {
       id: data.id,
       name: data.name,

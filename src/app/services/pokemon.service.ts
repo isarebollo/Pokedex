@@ -40,6 +40,8 @@ export class PokemonService {
       navbarColor = 'type-fairy';
     } else if (types.includes('fighting')) {
       navbarColor = 'type-fighting';
+    } else if (types.includes('fire')) {
+      navbarColor = 'type-fire';
     } else if (types.includes('ghost')) {
       navbarColor = 'types-ghost';
     } else if (types.includes('grass')) {
