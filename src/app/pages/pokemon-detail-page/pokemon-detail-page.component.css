@@ -1,11 +1,37 @@
+/* // Abilities Styling */
+.ability,
+.variety {
+    border-radius: 2px;
+    padding: 2px 3px;
+    margin-right: 6px;
+    white-space: nowrap;
+    line-height: initial;
+}
+
+.variety {
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.formsBlock {
+    padding-top: 8px;
+}
+
+.hiddenAbility,
+.selectedForm,
+.selectedEvo {
+    filter: brightness(110%) saturate(50%);
+}
+
+/* Style table */
 table {
     border-collapse: separate;
-    border-spacing: 0 10px;
+    border-spacing: 0 25px;
     max-width: max-content;
     font-size: medium;
-    
+
 }
-/* ELIMINAR AL TERMINAR */
+
 
 .table-title {
 
@@ -16,14 +42,54 @@ table {
 }
 
 
+
 .heading {
     font-size: xx-large;
     color: #6d6d6d;
 }
-.image-pokemon{
-    width: 350px;
+
+.fOut {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+
+
+/* //Type Box */
+.icon-type {
+    display: inline;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 0 0 0 15px;
+
 }
 
+/* /Initial Stat Bar Color */
+.progress-bar {
+    background-color: white;
+    width: 0;
+    font-size: 1rem;
+    text-align: right;
+    transition: width 1.5s ease-in;
+}
+
+.progress-bar span {
+    padding-right: 4px;
+}
+
+/* style image */
+
+.image-pokemon {
+    width: auto;
+
+}
+
+.img-icon-type-detail {
+    width: 15px;
+}
+
+
+/* ------------------TIPOS DE POKEMON------------------------ */
 .pokemon-type-bug {
     background-color: #a8b820;
 }

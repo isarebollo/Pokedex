@@ -5,12 +5,16 @@ import { NavbarService } from 'src/app/services/navbar.service';
 
 import { PokemonService } from 'src/app/services/pokemon.service';
 
+
+
 @Component({
   selector: 'app-pokemon-detail-page',
   templateUrl: './pokemon-detail-page.component.html',
   styleUrls: ['./pokemon-detail-page.component.css']
 })
 export class PokemonDetailPageComponent implements OnInit {
+ 
+
 
   heightInMetres: any;
   heightInFeetInches: any;
@@ -116,16 +120,10 @@ export class PokemonDetailPageComponent implements OnInit {
         return 'pokemon-type-steel';
       case 'water':
         return 'pokemon-type-water';
-
-
-
       default:
         return '';
     }
   }
-
-
-
 }
 
 

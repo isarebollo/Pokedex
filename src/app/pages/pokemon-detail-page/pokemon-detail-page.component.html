@@ -1,43 +1,60 @@
-<div class="container">
+<div class="container mt-5">
     <div class="text-center text-uppercase mt-4">
         <h1 class="heading">{{ pokemon.name.toUpperCase() }}</h1>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row">
         <!-- COLUMNA IZQUIERDA -->
-        <div class="col-lg-3 col-md-2 my-auto">
+
+        <div class="col-lg-3 col-md-4 col-sm-6 my-auto">
             <div class="inner">
-                <table class="table  text-capitalize">
+                <table class="table text-capitalize">
                     <tr>
                         <td class="text-center table-title ">ID</td>
-                        <td>#{{ pokemon.id }}</td>
+                        <td style="white-space: nowrap">{{ pokemon.id }}</td>
                     </tr>
                     <tr>
                         <td class="text-center table-title ">Height</td>
-                        <td>{{ heightInMetres + "m ( " + heightInFeetInches + " )" }}</td>
+                        <td style="white-space: nowrap">{{ heightInMetres + "m ( " + heightInFeetInches + " )" }}</td>
                     </tr>
                     <tr>
                         <td class="text-center table-title ">Weight</td>
-                        <td>{{ weightInKgs + "kg ( " + weightInPounds + "lbs. )" }}</td>
+                        <td style="white-space: nowrap">{{ weightInKgs + "kg ( " + weightInPounds + "lbs. )" }}</td>
                     </tr>
                     <tr>
-                        <td class="text-center table-title ">Type</td>
+                        <td class="text-center table-title  ">Type</td>
                         <td>
                             <span>
                                 <ng-container *ngFor="let type of pokemon.types; let last = last">
-                                    <span>{{ type.type.name }}</span>
-                                    <ng-container *ngIf="!last"> & </ng-container>
+                                    <div class="col-4 text-white icon-type white-space: nowrap"
+                                        [ngClass]="'pokemon-type-'+ type.type.name.toLowerCase()">
+                                        <span>{{ type.type.name }}</span>
+                                        <span>
+                                            <img class="img-fluid img-icon-type-detail"
+                                                [src]="'assets/images/type-icons/png/'+(type.type.name)+'.png'"
+                                                [alt]="type.type.name" />
+                                        </span>
+
+                                    </div>
+
+
                                 </ng-container>
                             </span>
+
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center table-title">Abilities</td>
                         <td>
-                            <div class="row">
-                                <div class="text-capitalize " *ngFor="let ability of pokemon.abilities">{{
-                                    ability.ability.name }}</div>
-                            </div>
+
+                            <span class="abilities" *ngFor="let ability of pokemon.abilities; let i=index">
+                                <ng-container *ngIf="i==2"><br></ng-container>
+                                <span class="ability text-uppercase"
+                                    [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
+                                    [ngClass]="getProgressBarColor(pokemon.types[0].type.name)" role="button"
+                                    data-toggle="modal" data-target="#abilityModal">{{ability.ability.name}}</span>
+                            </span>
+
                         </td>
                     </tr>
                 </table>
@@ -46,21 +63,25 @@
         </div>
 
         <!-- COLUMNA CENTRAL (IMAGEN POKEMON) -->
-        <div class="col-lg-6 col-md-8 my-auto">
+
+
+
+        <div class="col-lg-6 col-md-8 col-sm-12 my-auto  ">
             <div class="inner d-flex justify-content-center">
                 <div>
                     <div class="image-container">
-                        <img class="image-pokemon" [src]="'assets/images/pokemon-images/' + pokemon.id + '.png'"
-                            [alt]="pokemon.name">
+
+                        <img class="image-pokemon img-fluid Image"
+                            [src]="'assets/images/pokemon-images/' + pokemon.id + '.png'" [alt]="pokemon.name">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- COLUMNA DERECHA -->
-        <div class="col-lg-3 col-md-2 statDiv my-auto">
+        <div class="col-lg-3 col-md-4 col-sm-6 statDiv my-auto mt-4   justify-content-start">
             <div class="inner">
-                <table class="table text-capitalize ">
+                <table class="table text-capitalize">
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[0].stat.name}}</td>
                         <div class="progress">
