@@ -16,7 +16,7 @@ export class PokeCardComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
-    console.log(this.pokemon)
+    // console.log(this.pokemon)
 
   }
 }

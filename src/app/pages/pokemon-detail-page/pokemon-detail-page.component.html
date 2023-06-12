@@ -64,8 +64,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[0].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[0].base_stat">
                                 {{ pokemon.stats[0].base_stat }}</div>
                         </div>
@@ -73,8 +74,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[1].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[1].base_stat">
                                 {{ pokemon.stats[1].base_stat }}</div>
                         </div>
@@ -82,8 +84,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[2].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[2].base_stat">
                                 {{ pokemon.stats[2].base_stat }}</div>
                         </div>
@@ -91,8 +94,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[3].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[3].base_stat">
                                 {{ pokemon.stats[3].base_stat }}</div>
                         </div>
@@ -100,8 +104,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[4].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[4].base_stat">
                                 {{ pokemon.stats[4].base_stat }}</div>
                         </div>
@@ -109,8 +114,9 @@
                     <tr>
                         <td class="text-center table-title">{{pokemon.stats[5].stat.name}}</td>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
+                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[5].base_stat">
                                 {{ pokemon.stats[5].base_stat }}</div>
                         </div>

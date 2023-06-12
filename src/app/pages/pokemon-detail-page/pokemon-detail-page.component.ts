@@ -19,7 +19,7 @@ export class PokemonDetailPageComponent implements OnInit {
   pokemonName: string = '';
   pokemonDetails: IPokemonDetail[] = [];
   pokemon: any;
-  
+
   stats: string[] = ['0%', '0%', '0%', '0%', '0%', '0%'];
 
 
@@ -49,13 +49,13 @@ export class PokemonDetailPageComponent implements OnInit {
           Math.round(((this.heightInMetres * 3.2808) % 1) * 12) +
           '\'';
         this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
-        this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);      
-        
+        this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
+
         const pokemonTypes = this.pokemon.types.map((type: any) => type.type.name);
         const navbarColor = this.pokemonService.getNavbarColorByPokemonTypes(pokemonTypes);
         this.navbarService.setNavbarColor(navbarColor);
 
-       
+
       },
       error: (error) => {
         console.log(error);
@@ -75,6 +75,53 @@ export class PokemonDetailPageComponent implements OnInit {
       stats: data.stats,
     };
     return mappedPokemon;
+  }
+
+
+  getProgressBarColor(type: string): string {
+    switch (type) {
+      case 'bug':
+        return 'pokemon-type-bug';
+      case 'dark':
+        return 'pokemon-type-dark';
+      case 'dragon':
+        return 'pokemon-type-dragon';
+      case 'electric':
+        return 'pokemon-type-electric';
+      case 'fairy':
+        return 'pokemon-type-fairy';
+      case 'fighting':
+        return 'pokemon-type-fighting';
+      case 'fire':
+        return 'pokemon-type-fire';
+      case 'flying':
+        return 'pokemon-type-flying';
+      case 'ghost':
+        return 'pokemon-type-ghost';
+      case 'grass':
+        return 'pokemon-type-grass';
+      case 'ground':
+        return 'pokemon-type-ground';
+      case 'ice':
+        return 'pokemon-type-ice';
+      case 'normal':
+        return 'pokemon-type-normal';
+      case 'poison':
+        return 'pokemon-type-poison';
+      case 'psychic':
+        return 'pokemon-type-psychic';
+      case 'rock':
+        return 'pokemon-type-rock';
+      case 'steel':
+        return 'pokemon-type-steel';
+      case 'water':
+        return 'pokemon-type-water';
+
+
+
+      default:
+        return '';
+    }
   }
 
 
