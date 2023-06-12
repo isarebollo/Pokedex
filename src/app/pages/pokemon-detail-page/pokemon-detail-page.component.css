@@ -1,3 +1,57 @@
+
+.bioDiv {
+    padding-right: 0;
+    
+    margin-right: 0;
+    opacity: 1;
+    transition: opacity .6s ease-in-out;
+  }
+/* // Perspective only for desktops */
+@media only screen and (min-width: 992px) {
+
+  /* // BioDIv tabla de la izquierda*/
+  .bioDiv {
+    perspective: 400px; 
+    margin: auto 0;
+    width: 20em;
+  }
+
+  .bioDiv:hover .inner {
+    transform: rotate(0)
+  }
+
+  .bioDiv .inner {
+    transition: .3s;
+    transform: rotateY(30deg);
+  }
+
+  /* // statDiv tabla de la derecha */
+  .statDiv {
+    perspective: 400px;
+    margin: 4em auto;
+    width: 20em;
+    padding-left: 0;
+    padding-right: 1rem; 
+    -webkit-font-smoothing: antialiased !important;
+    /* //-webkit-filter: blur(0); */
+    /* //-webkit-backface-visibility: hidden; */
+    /* //-webkit-transform: translateZ(0) scale(1.0, 1.0); */
+    /* //transform: translateZ(0); */
+    /* //margin-right: 30px; */
+  }
+
+  .statDiv:hover .inner {
+    transform: rotate(0);
+  }
+
+  .statDiv .inner {
+    transition: .3s;
+    transform: rotateY(-30deg);
+  }
+}
+
+
+
 /* // Abilities Styling */
 .ability,
 .variety {
@@ -87,7 +141,6 @@ table {
 .img-icon-type-detail {
     width: 15px;
 }
-
 
 /* ------------------TIPOS DE POKEMON------------------------ */
 .pokemon-type-bug {

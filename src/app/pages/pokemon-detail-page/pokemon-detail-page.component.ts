@@ -13,7 +13,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemon-detail-page.component.css']
 })
 export class PokemonDetailPageComponent implements OnInit {
- 
+
 
 
   heightInMetres: any;
@@ -124,7 +124,10 @@ export class PokemonDetailPageComponent implements OnInit {
         return '';
     }
   }
+
+
 }
+
 
 
 
