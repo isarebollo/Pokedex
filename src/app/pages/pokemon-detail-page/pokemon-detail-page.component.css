@@ -1,11 +1,4 @@
 
-.bioDiv {
-    padding-right: 0;
-    
-    margin-right: 0;
-    opacity: 1;
-    transition: opacity .6s ease-in-out;
-  }
 /* // Perspective only for desktops */
 @media only screen and (min-width: 992px) {
 
@@ -33,11 +26,7 @@
     padding-left: 0;
     padding-right: 1rem; 
     -webkit-font-smoothing: antialiased !important;
-    /* //-webkit-filter: blur(0); */
-    /* //-webkit-backface-visibility: hidden; */
-    /* //-webkit-transform: translateZ(0) scale(1.0, 1.0); */
-    /* //transform: translateZ(0); */
-    /* //margin-right: 30px; */
+    
   }
 
   .statDiv:hover .inner {
@@ -49,7 +38,6 @@
     transform: rotateY(-30deg);
   }
 }
-
 
 
 /* // Abilities Styling */
@@ -83,10 +71,7 @@ table {
     border-spacing: 0 25px;
     max-width: max-content;
     font-size: medium;
-
 }
-
-
 .table-title {
 
     width: 50%;
@@ -94,19 +79,10 @@ table {
     color: #6d6d6d;
     font-weight: bold;
 }
-
-
-
 .heading {
     font-size: xx-large;
     color: #6d6d6d;
 }
-
-.fOut {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-  
 
 
 /* //Type Box */
@@ -134,8 +110,8 @@ table {
 /* style image */
 
 .image-pokemon {
-    width: auto;
-
+   
+    transform: scale(0.8); /* Aumenta/disminuye el tamaño en un x% */
 }
 
 .img-icon-type-detail {
