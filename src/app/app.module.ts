@@ -13,6 +13,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { PokeCardComponent } from './components/poke-card/poke-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-detail-page.component';
+import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-
     PokemonPageComponent,
     NavComponent,
     PokeCardComponent,
-    PokemonDetailPageComponent
+    PokemonDetailPageComponent,
+    
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ import { PokemonDetailPageComponent } from './pages/pokemon-detail-page/pokemon-
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

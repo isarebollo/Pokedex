@@ -12,6 +12,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class PokemonPageComponent implements OnInit {
 
   listaPokemon: IPokemonDetail[] = [];
+  searchText = '';
+  showSearch = true;
+  _timeout: any = null;
+  searchResults: IPokemonDetail[] = [];
+
 
   constructor(private router: Router, private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
@@ -19,13 +24,13 @@ export class PokemonPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.inicializarListaPokemon()
-    
+
   }
 
   inicializarListaPokemon() {
     const pokemonPromises: Promise<IPokemonDetail | undefined>[] = [];
 
-    for (let i = 1; i <= 200; i++) {
+    for (let i = 1; i <= 20; i++) {
       const promise = this.pokemonService.getPokemonDetailsById(i.toString()).toPromise()
         .then((pokemonDetail) => {
           return pokemonDetail as unknown as IPokemonDetail;
@@ -48,7 +53,44 @@ export class PokemonPageComponent implements OnInit {
         console.info('Peticion inicial de pokemon terminada');
       });
   }
+  searchPokemon(): void {
 
+    clearTimeout(this._timeout);
+    this._timeout = setTimeout(() => {
+      if (this.searchText.trim() !== '') {
+        this.pokemonService.getAllPokemon().subscribe(
+          (pokemons: Results) => {
+            // Filtrar los Pokémon que coincidan con el término de búsqueda
+            this.searchResults = pokemons.results.filter(
+              (pokemon) =>
+                pokemon.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                pokemon.url.includes(this.searchText)
+            );
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      } else {
+
+        this.searchResults = [];
+      }
+    }, 300);
+  }
+
+
+  matchesFilter(pokemon: IPokemonDetail): boolean {
+    if (this.searchText.trim() === '') {
+      return true; // Mostrar todos los Pokémon cuando el filtro está vacío
+    }
+  
+    const lowerCaseSearchText = this.searchText.toLowerCase();
+    return (
+      pokemon.name.toLowerCase().includes(lowerCaseSearchText) ||
+      pokemon.id.toString().includes(lowerCaseSearchText)
+    );
+  }
+  
 
 
 }

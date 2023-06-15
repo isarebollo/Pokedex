@@ -1,16 +1,14 @@
 <nav [ngClass]="navbarColor" class="navbar p-3">
 
-    <div class="container-fluid">
-        <a class="navbar-brand">POKEDEX</a>
+  <div class="container-fluid">
+    <a class="navbar-brand">POKEDEX</a>
+    <!-- <form class="d-flex">
+      <input [(ngModel)]="searchText" name="searchText" (input)="searchPokemon()" placeholder="Buscar...">
+      <ul>
+        <li *ngFor="let pokemon of searchResults">{{ pokemon.name }}</li>
+      </ul>
 
-        <form class="d-flex">
-            <input mat-in class="form-control me-2" type="search" placeholder="Search" autocomplete="off"
-                aria-label="Search">
-            <button mat-mini-fab matTooltip="Primary" color="warn" aria-label="Example mini fab with a heart icon">
-                <mat-icon>search</mat-icon>
-            </button>
+    </form> -->
 
-        </form>
-
-    </div>
+  </div>
 </nav>

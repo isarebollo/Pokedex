@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { IPokemon, Results } from '../models/JSONinterfaces/pokemon.interface';
+import { Observable, Subject } from 'rxjs';
+import { Results } from '../models/JSONinterfaces/pokemon.interface';
 import { IPokemonDetail } from '../models/external/pokemonDetail.interface';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class PokemonService {
 
 
   private apiUrl = 'https://pokeapi.co/api/v2/';
+  @Output() searchItemSubject: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
@@ -43,7 +44,7 @@ export class PokemonService {
     } else if (types.includes('fire')) {
       navbarColor = 'type-fire';
     } else if (types.includes('ghost')) {
-      navbarColor = 'types-ghost';
+      navbarColor = 'type-ghost';
     } else if (types.includes('grass')) {
       navbarColor = 'type-grass';
     } else if (types.includes('ground')) {

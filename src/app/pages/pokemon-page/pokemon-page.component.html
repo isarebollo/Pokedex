@@ -1,5 +1,10 @@
-<div class="pokemon-card-container">
-   
-    <app-poke-card *ngFor="let pokemon of listaPokemon" [pokemon]="pokemon"></app-poke-card>
+<form class="d-flex">
+    <input [(ngModel)]="searchText" name="searchText" (input)="searchPokemon()" placeholder="Buscar...">
 
+</form>
+
+
+<div class="pokemon-card-container">
+    <app-poke-card *ngFor="let pokemon of listaPokemon" [pokemon]="pokemon"
+        [hidden]="!matchesFilter(pokemon)"></app-poke-card>
 </div>
