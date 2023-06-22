@@ -1,7 +1,10 @@
-
- .white-nav {
+.white-nav {
     background-color: white;
-    
+
+}
+
+.img-logo{
+    width: 30rem;
 }
 
 .type-bug {
@@ -74,4 +77,4 @@
 
 .type-water {
     background-color: #6890f0;
-} 
+}

@@ -1,9 +1,7 @@
 import { Component, OnInit, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Results } from 'src/app/models/JSONinterfaces/pokemon.interface';
 import { IPokemonDetail } from 'src/app/models/external/pokemonDetail.interface';
 import { NavbarService } from 'src/app/services/navbar.service';
-import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-nav',
@@ -21,9 +19,9 @@ export class NavComponent implements OnInit {
 
   constructor(
     private navbarService: NavbarService,
-    private pokemonService: PokemonService,
+
     private router: Router,
-    private lc: NgZone
+
   ) { }
 
   ngOnInit(): void {
@@ -35,9 +33,15 @@ export class NavComponent implements OnInit {
         const currentUrl = event.urlAfterRedirects;
         // Verifica la URL actual y actualiza la clase del navbar en consecuencia
         this.navbarColor = currentUrl.includes('/pokemon/') ? ' ' : 'white-nav';
+        this.navbarColor = currentUrl.includes('/pokemon/') ? ' ' : 'white-nav';
       }
     });
   }
 
-  
+  goToPreviousRoute(): void {
+    this.router.navigate(['/pokemon'])
+  }
+
+
+
 }
