@@ -30,7 +30,7 @@ export class PokemonPageComponent implements OnInit {
   inicializarListaPokemon() {
     const pokemonPromises: Promise<IPokemonDetail | undefined>[] = [];
 
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 205; i++) {
       const promise = this.pokemonService.getPokemonDetailsById(i.toString()).toPromise()
         .then((pokemonDetail) => {
           return pokemonDetail as unknown as IPokemonDetail;
