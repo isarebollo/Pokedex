@@ -14,8 +14,8 @@
   }
 
   .bioDiv .inner {
-    transition: .3s;
-    transform: rotateY(30deg);
+    transition: .2s;
+    transform: rotateY(15deg);
   }
 
   /* // statDiv tabla de la derecha */
@@ -34,8 +34,8 @@
   }
 
   .statDiv .inner {
-    transition: .3s;
-    transform: rotateY(-30deg);
+    transition: .2s;
+    transform: rotateY(-15deg);
   }
 }
 
@@ -80,8 +80,10 @@ table {
     font-weight: bold;
 }
 .heading {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: xx-large;
     color: #6d6d6d;
+    
 }
 
 

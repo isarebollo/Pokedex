@@ -15,10 +15,6 @@
 </div>
 
 
-
-
-
-
 <div class="pokemon-card-container">
     <app-poke-card *ngFor="let pokemon of listaPokemon" [pokemon]="pokemon"
         [hidden]="!matchesFilter(pokemon)"></app-poke-card>
