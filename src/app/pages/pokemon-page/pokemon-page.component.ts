@@ -11,23 +11,24 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonPageComponent implements OnInit {
 
+
+
   listaPokemon: IPokemonDetail[] = [];
   searchText = '';
   showSearch = true;
   _timeout: any = null;
   searchResults: IPokemonDetail[] = [];
-
+  isLoading = false; // Variable para controlar el estado de carga
 
   constructor(private router: Router, private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
-
-
   ngOnInit(): void {
-    this.inicializarListaPokemon()
-
+    this.inicializarListaPokemon();
   }
 
   inicializarListaPokemon() {
+    this.isLoading = true; // Iniciar la carga
+
     const pokemonPromises: Promise<IPokemonDetail | undefined>[] = [];
 
     for (let i = 1; i <= 500; i++) {
@@ -50,14 +51,17 @@ export class PokemonPageComponent implements OnInit {
       })
       .catch((error) => console.error(error))
       .finally(() => {
+        this.isLoading = false; // Finalizar la carga
         console.info('Peticion inicial de pokemon terminada');
       });
   }
-  searchPokemon(): void {
 
+  searchPokemon(): void {
     clearTimeout(this._timeout);
     this._timeout = setTimeout(() => {
       if (this.searchText.trim() !== '') {
+        this.isLoading = true; // Iniciar la carga
+
         this.pokemonService.getAllPokemon().subscribe(
           (pokemons: Results) => {
             // Filtrar los Pokémon que coincidan con el término de búsqueda
@@ -66,18 +70,19 @@ export class PokemonPageComponent implements OnInit {
                 pokemon.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
                 pokemon.url.includes(this.searchText)
             );
+
+            this.isLoading = false; // Finalizar la carga
           },
           (error) => {
             console.error(error);
+            this.isLoading = false; // Finalizar la carga en caso de error
           }
         );
       } else {
-
         this.searchResults = [];
       }
     }, 300);
   }
-
 
   matchesFilter(pokemon: IPokemonDetail): boolean {
     if (this.searchText.trim() === '') {
@@ -90,7 +95,5 @@ export class PokemonPageComponent implements OnInit {
       pokemon.id.toString().includes(lowerCaseSearchText)
     );
   }
-  
-
 
 }
