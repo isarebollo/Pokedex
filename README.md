@@ -1,27 +1,57 @@
-# Pokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-## Development server
+![PokéAngular Logo](src/assets/images/logo.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+PokéAngular es una aplicación web desarrollada con Angular con TypesScript  que muestra información sobre los diferentes Pokémon. Puedes explorar la lista de Pokémon, ver detalles de cada uno y buscar Pokémon específicos.
 
-## Build
+![PokéAngular Page](src/assets/images/Pokedex.jpg)
+![PokéAngular Detail](src/assets/images/Pokedex2.jpg)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalación
 
-## Running unit tests
+1. Clona este repositorio en tu máquina local.
+2. Asegúrate de tener Node.js y Angular CLI instalados en tu sistema.
+3. Abre una terminal en el directorio raíz del proyecto.
+4. Ejecuta el siguiente comando para instalar las dependencias:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```shell
+   npm install
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## USO
 
-## Further help
+1. Después de instalar las dependencias, ejecuta el siguiente comando para iniciar la aplicación:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```shell
+   ng serve
+
+
+2. Abre tu navegador web y navega a http://localhost:4200/. La aplicación se cargará automáticamente y podrás ver la página de inicio.
+
+
+## CARACTERISTICAS
+
+- Lista de Pokémon: Explora una lista completa de todos los Pokémon disponibles.
+- Detalles del Pokémon: Ver información detallada sobre cada Pokémon, como tipo, habilidades, estadísticas, etc.
+- Búsqueda: Busca Pokémon específicos por nombre o número de Pokédex.
+- Interfaz intuitiva: Diseño limpio y fácil de usar.
+
+
+## CONTRIBUCIÓN
+Si deseas contribuir a este proyecto, sigue los pasos a continuación:
+
+1. Realiza un fork de este repositorio.
+2. Crea una rama con la siguiente convención de nombres: feature/nombre-de-la-funcionalidad o bugfix/nombre-del-bug.
+3. Realiza los cambios necesarios en tu rama.
+4. Envía un pull request a la rama principal.
+
+
+
+## LICENCIA
+Este proyecto está bajo la Licencia MIT.
+
+## CONTACTO
+Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo en https://www.linkedin.com/in/isabelrebollo/ 
+
