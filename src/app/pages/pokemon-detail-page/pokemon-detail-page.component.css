@@ -120,6 +120,12 @@ table {
     width: 15px;
 }
 
+/* EVOLUTION */
+.evolution-image{
+    width: 10%;
+}
+
+
 /* ------------------TIPOS DE POKEMON------------------------ */
 .pokemon-type-bug {
     background-color: #a8b820;

@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="text-center text-uppercase mt-4 ">
         <h1 class="heading">{{ pokemon.name.toUpperCase() }}</h1>
     </div>
@@ -146,4 +147,27 @@
             </div>
         </div>
     </div>
+
+
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- codigo para la evoluciones pokemon -->
+
+    <!-- codigo para la evoluciones pokemon -->
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Evolutions</h2>
+            <div class="evolutions">
+                <div *ngFor="let evolution of evolutions" class="evolution">
+                    <img [src]="'assets/images/pokemon-images/' + evolution.id + '.png'" [alt]="evolution.name"
+                        class="evolution-image">
+                    <h3>{{ evolution.name }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ------------------------------------------------------------------------------------- -->
 </div>

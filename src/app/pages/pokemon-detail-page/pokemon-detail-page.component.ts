@@ -5,7 +5,19 @@ import { NavbarService } from 'src/app/services/navbar.service';
 
 import { PokemonService } from 'src/app/services/pokemon.service';
 
+interface IPokemonEvolution {
+  id: number;
+  name: string;
+  url: string;
+}
 
+interface IEvolutionData {
+  species: {
+    name: string;
+    url: string;
+  };
+  evolves_to: IEvolutionData[];
+}
 
 @Component({
   selector: 'app-pokemon-detail-page',
@@ -14,6 +26,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonDetailPageComponent implements OnInit {
 
+  evolutions: IPokemonEvolution[] = [];
 
 
   heightInMetres: any;
@@ -28,7 +41,9 @@ export class PokemonDetailPageComponent implements OnInit {
 
 
   constructor(
-    private route: ActivatedRoute, private pokemonService: PokemonService, private navbarService: NavbarService
+    private route: ActivatedRoute,
+    private pokemonService: PokemonService,
+    private navbarService: NavbarService
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +56,6 @@ export class PokemonDetailPageComponent implements OnInit {
   }
 
   getPokemonDetails(): void {
-
     this.pokemonService.getPokemonDetailsById(this.pokemonName).subscribe({
       next: (data) => {
         this.pokemonDetails = data;
@@ -51,7 +65,7 @@ export class PokemonDetailPageComponent implements OnInit {
           Math.floor(this.heightInMetres * 3.2808) +
           '"' +
           Math.round(((this.heightInMetres * 3.2808) % 1) * 12) +
-          '\'';
+          "'";
         this.weightInKgs = (this.pokemon.weight * 0.1).toFixed(1);
         this.weightInPounds = (this.weightInKgs * 2.205).toFixed(1);
 
@@ -59,9 +73,26 @@ export class PokemonDetailPageComponent implements OnInit {
         const navbarColor = this.pokemonService.getNavbarColorByPokemonTypes(pokemonTypes);
         this.navbarService.setNavbarColor(navbarColor);
 
-
+        const speciesUrl = this.pokemon.species.url;
+        this.pokemonService.getPokemonSpeciesByUrl(speciesUrl).subscribe({
+          next: (speciesData: any) => {
+            const evolutionChainUrl = speciesData.evolution_chain.url;
+            this.pokemonService.getEvolutionChainByUrl(evolutionChainUrl).subscribe({
+              next: (evolutionData: any) => {
+                this.parseEvolutions(evolutionData.chain);
+                
+              },
+              error: (error: any) => {
+                console.log(error);
+              }
+            });
+          },
+          error: (error: any) => {
+            console.log(error);
+          }
+        });
       },
-      error: (error) => {
+      error: (error: any) => {
         console.log(error);
       }
     });
@@ -77,6 +108,7 @@ export class PokemonDetailPageComponent implements OnInit {
       types: data.types,
       abilities: data.abilities,
       stats: data.stats,
+      species: data.species,
     };
     return mappedPokemon;
   }
@@ -125,9 +157,39 @@ export class PokemonDetailPageComponent implements OnInit {
     }
   }
 
+  parseEvolutions(evolutionData: IEvolutionData): void {
+    const evolutions: IPokemonEvolution[] = [];
+
+    const buildEvolution = (data: IEvolutionData) => {
+      const getIDFromURL = (url: string) => {
+        const parts = url.split('/');
+        return parseInt(parts[parts.length - 2], 10);
+      };
+
+      const evolution: IPokemonEvolution = {
+        id: getIDFromURL(data.species.url),
+        name: data.species.name,
+        url: data.species.url
+      };
+
+      evolutions.push(evolution);
+
+      if (data.evolves_to.length > 0) {
+        for (const nextEvolution of data.evolves_to) {
+          buildEvolution(nextEvolution);
+        }
+      }
+    };
+
+    buildEvolution(evolutionData);
+
+    this.evolutions = evolutions;
+  }
+
+  
+
 
 }
-
 
 
 

@@ -1,9 +1,37 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Results } from '../models/JSONinterfaces/pokemon.interface';
 import { IPokemonDetail } from '../models/external/pokemonDetail.interface';
+
+
+interface PokemonSpecies {
+  id: number;
+  name: string;
+  evolution_chain: {
+    url: string;
+  };
+  // Otras propiedades que puedas necesitar
+}
+
+interface EvolutionChain {
+  id: number;
+  chain: ChainLink;
+  // Otras propiedades que puedas necesitar
+}
+
+interface ChainLink {
+  is_baby: boolean;
+  species: {
+    name: string;
+    url: string;
+  };
+  evolves_to: ChainLink[];
+  // Otras propiedades que puedas necesitar
+}
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +40,7 @@ export class PokemonService {
 
 
   private apiUrl = 'https://pokeapi.co/api/v2/';
-  @Output() searchItemSubject: Subject<string> = new Subject<string>();
+
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +52,14 @@ export class PokemonService {
     const url = `${this.apiUrl}pokemon/${id}`;
     return this.http.get<any>(url);
   }
+  getPokemonSpeciesByUrl(url: string): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(url);
+  }
+
+  getEvolutionChainByUrl(url: string): Observable<EvolutionChain> {
+    return this.http.get<EvolutionChain>(url);
+  }
+
 
   getNavbarColorByPokemonTypes(types: string[]): string {
     let navbarColor = '';
