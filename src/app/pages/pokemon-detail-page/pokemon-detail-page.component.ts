@@ -9,6 +9,7 @@ interface IPokemonEvolution {
   id: number;
   name: string;
   url: string;
+
 }
 
 interface IEvolutionData {
@@ -80,7 +81,7 @@ export class PokemonDetailPageComponent implements OnInit {
             this.pokemonService.getEvolutionChainByUrl(evolutionChainUrl).subscribe({
               next: (evolutionData: any) => {
                 this.parseEvolutions(evolutionData.chain);
-                
+
               },
               error: (error: any) => {
                 console.log(error);
@@ -114,7 +115,7 @@ export class PokemonDetailPageComponent implements OnInit {
   }
 
 
-  getProgressBarColor(type: string): string {
+  getColor(type: string): string {
     switch (type) {
       case 'bug':
         return 'pokemon-type-bug';
@@ -169,7 +170,7 @@ export class PokemonDetailPageComponent implements OnInit {
       const evolution: IPokemonEvolution = {
         id: getIDFromURL(data.species.url),
         name: data.species.name,
-        url: data.species.url
+        url: data.species.url,
       };
 
       evolutions.push(evolution);
@@ -185,9 +186,6 @@ export class PokemonDetailPageComponent implements OnInit {
 
     this.evolutions = evolutions;
   }
-
-  
-
 
 }
 

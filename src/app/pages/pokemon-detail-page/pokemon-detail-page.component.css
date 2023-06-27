@@ -156,6 +156,7 @@ table {
 .evolution-name {
     margin-top: 10px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 

@@ -52,8 +52,8 @@
                                 <ng-container *ngIf="i==2"><br></ng-container>
                                 <span class="ability text-uppercase"
                                     [ngStyle]="{'display':i==2?'inline-block':'unset','margin-top':i==2?'5px':'0px'}"
-                                    [ngClass]="getProgressBarColor(pokemon.types[0].type.name)" role="button"
-                                    data-toggle="modal" data-target="#abilityModal">{{ability.ability.name}}</span>
+                                    [ngClass]="getColor(pokemon.types[0].type.name)" role="button" data-toggle="modal"
+                                    data-target="#abilityModal">{{ability.ability.name}}</span>
                             </span>
 
                         </td>
@@ -88,7 +88,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[0].base_stat">
                                 {{ pokemon.stats[0].base_stat }}</div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[1].base_stat">
                                 {{ pokemon.stats[1].base_stat }}</div>
                         </div>
@@ -108,7 +108,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[2].base_stat">
                                 {{ pokemon.stats[2].base_stat }}</div>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[3].base_stat">
                                 {{ pokemon.stats[3].base_stat }}</div>
                         </div>
@@ -128,7 +128,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[4].base_stat">
                                 {{ pokemon.stats[4].base_stat }}</div>
                         </div>
@@ -138,7 +138,7 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="255"
-                                [ngClass]="getProgressBarColor(pokemon.types[0].type.name)"
+                                [ngClass]="getColor(pokemon.types[0].type.name)"
                                 [style.width.%]="pokemon.stats[5].base_stat">
                                 {{ pokemon.stats[5].base_stat }}</div>
                         </div>
@@ -155,15 +155,16 @@
     <div class="row mt-5">
         <div class="col">
             <h1 class=" evolution-title">
-                <span class="rounded" [ngClass]="getProgressBarColor(pokemon.types[0].type.name)">Evolution
+                <span class="rounded" [ngClass]="getColor(pokemon.types[0].type.name)">Evolution
                 </span>
             </h1>
             <div class="evolutions d-flex flex-row align-items-center">
                 <div *ngFor="let evolution of evolutions" class="evolution">
                     <img [src]="'assets/images/pokemon-images/' + evolution.id + '.png'" [alt]="evolution.name"
                         class="evolution-image">
-                    <h3 class="evolution-name">{{ evolution.name }}</h3>
-                </div>
+                    <span>#{{evolution.id}}</span>
+                    <h4 class="evolution-name">{{ evolution.name }}</h4>
+                    </div>
             </div>
         </div>
     </div>
