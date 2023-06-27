@@ -139,6 +139,7 @@ table {
 .evolutions {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .evolution {

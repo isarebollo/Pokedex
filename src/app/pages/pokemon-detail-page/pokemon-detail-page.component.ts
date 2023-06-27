@@ -187,6 +187,11 @@ export class PokemonDetailPageComponent implements OnInit {
     this.evolutions = evolutions;
   }
 
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 }
 
 
