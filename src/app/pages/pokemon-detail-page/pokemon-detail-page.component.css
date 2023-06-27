@@ -1,42 +1,41 @@
-
 /* // Perspective only for desktops */
 @media only screen and (min-width: 992px) {
 
-  /* // BioDIv tabla de la izquierda*/
-  .bioDiv {
-    perspective: 400px; 
-    margin: auto 0;
-    width: 20em;
-  }
+    /* // BioDIv tabla de la izquierda*/
+    .bioDiv {
+        perspective: 400px;
+        margin: auto 0;
+        width: 20em;
+    }
 
-  .bioDiv:hover .inner {
-    transform: rotate(0)
-  }
+    .bioDiv:hover .inner {
+        transform: rotate(0)
+    }
 
-  .bioDiv .inner {
-    transition: .2s;
-    transform: rotateY(15deg);
-  }
+    .bioDiv .inner {
+        transition: .2s;
+        transform: rotateY(15deg);
+    }
 
-  /* // statDiv tabla de la derecha */
-  .statDiv {
-    perspective: 400px;
-    margin: 4em auto;
-    width: 20em;
-    padding-left: 0;
-    padding-right: 1rem; 
-    -webkit-font-smoothing: antialiased !important;
-    
-  }
+    /* // statDiv tabla de la derecha */
+    .statDiv {
+        perspective: 400px;
+        margin: 4em auto;
+        width: 20em;
+        padding-left: 0;
+        padding-right: 1rem;
+        -webkit-font-smoothing: antialiased !important;
 
-  .statDiv:hover .inner {
-    transform: rotate(0);
-  }
+    }
 
-  .statDiv .inner {
-    transition: .2s;
-    transform: rotateY(-15deg);
-  }
+    .statDiv:hover .inner {
+        transform: rotate(0);
+    }
+
+    .statDiv .inner {
+        transition: .2s;
+        transform: rotateY(-15deg);
+    }
 }
 
 
@@ -72,6 +71,7 @@ table {
     max-width: max-content;
     font-size: medium;
 }
+
 .table-title {
 
     width: 50%;
@@ -79,11 +79,12 @@ table {
     color: #6d6d6d;
     font-weight: bold;
 }
+
 .heading {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: xx-large;
     color: #6d6d6d;
-    
+
 }
 
 
@@ -112,8 +113,9 @@ table {
 /* style image */
 
 .image-pokemon {
-   
-    transform: scale(0.8); /* Aumenta/disminuye el tamaño en un x% */
+
+    transform: scale(0.8);
+    /* Aumenta/disminuye el tamaño en un x% */
 }
 
 .img-icon-type-detail {
@@ -121,9 +123,41 @@ table {
 }
 
 /* EVOLUTION */
-.evolution-image{
-    width: 10%;
+.evolution-title {
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+
 }
+
+.evolution-title span {
+
+    padding: 2px 4px 4px;
+}
+
+
+.evolutions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.evolution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.evolution-image {
+    width: 180px;
+    height: 180px;
+}
+
+.evolution-name {
+    margin-top: 10px;
+    text-align: center;
+}
+
 
 
 /* ------------------TIPOS DE POKEMON------------------------ */

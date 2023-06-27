@@ -151,17 +151,18 @@
 
     <!-- ------------------------------------------------------------------------------- -->
 
-    <!-- codigo para la evoluciones pokemon -->
 
-    <!-- codigo para la evoluciones pokemon -->
     <div class="row mt-5">
         <div class="col">
-            <h2>Evolutions</h2>
-            <div class="evolutions">
+            <h1 class=" evolution-title">
+                <span class="rounded" [ngClass]="getProgressBarColor(pokemon.types[0].type.name)">Evolution
+                </span>
+            </h1>
+            <div class="evolutions d-flex flex-row align-items-center">
                 <div *ngFor="let evolution of evolutions" class="evolution">
                     <img [src]="'assets/images/pokemon-images/' + evolution.id + '.png'" [alt]="evolution.name"
                         class="evolution-image">
-                    <h3>{{ evolution.name }}</h3>
+                    <h3 class="evolution-name">{{ evolution.name }}</h3>
                 </div>
             </div>
         </div>
