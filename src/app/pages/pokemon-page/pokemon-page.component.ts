@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPokemon } from 'src/app/models/JSONinterfaces/pokemon.interface';
 import { IPokemonDetail, Results } from 'src/app/models/external/pokemonDetail.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -18,7 +17,7 @@ export class PokemonPageComponent implements OnInit {
   showSearch = true;
   _timeout: any = null;
   searchResults: IPokemonDetail[] = [];
-  isLoading = false; // Variable para controlar el estado de carga
+  isLoading = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
@@ -47,7 +46,7 @@ export class PokemonPageComponent implements OnInit {
     Promise.all(pokemonPromises)
       .then((pokemonDetails) => {
         this.listaPokemon = pokemonDetails.filter((pokemon) => pokemon !== undefined) as IPokemonDetail[];
-        // console.log(this.listaPokemon);
+      
       })
       .catch((error) => console.error(error))
       .finally(() => {

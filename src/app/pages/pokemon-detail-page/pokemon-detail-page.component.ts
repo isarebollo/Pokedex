@@ -2,14 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPokemonDetail } from 'src/app/models/external/pokemonDetail.interface';
 import { NavbarService } from 'src/app/services/navbar.service';
-
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 interface IPokemonEvolution {
   id: number;
   name: string;
   url: string;
-
 }
 
 interface IEvolutionData {

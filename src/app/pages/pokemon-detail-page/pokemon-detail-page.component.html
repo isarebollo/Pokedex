@@ -65,8 +65,6 @@
 
         <!-- COLUMNA CENTRAL (IMAGEN POKEMON) -->
 
-
-
         <div class="col-lg-6 col-md-8 col-sm-12 my-auto mx-auto ">
             <div class="inner d-flex justify-content-center">
                 <div>
@@ -154,25 +152,19 @@
 
     <div class="row mt-5">
         <div class="col">
-          <h1 class="evolution-title">
-            <span class="rounded" [ngClass]="getColor(pokemon.types[0].type.name)">Evolution</span>
-          </h1>
-          <div class="evolutions d-flex flex-wrap">
-            <div *ngFor="let evolution of evolutions" class="evolution" [routerLink]="['/pokemon', evolution.name]"
-              (click)="scrollToTop()">
-      
-              <img [src]="'assets/images/pokemon-images/' + evolution.id + '.png'" [alt]="evolution.name"
-                class="evolution-image">
-              <span>#{{evolution.id}}</span>
-              <h4 class="evolution-name">{{ evolution.name }}</h4>
+            <h1 class="evolution-title">
+                <span class="rounded" [ngClass]="getColor(pokemon.types[0].type.name)">Evolution</span>
+            </h1>
+            <div class="evolutions d-flex flex-wrap">
+                <div *ngFor="let evolution of evolutions" class="evolution" [routerLink]="['/pokemon', evolution.name]"
+                    (click)="scrollToTop()">
+
+                    <img [src]="'assets/images/pokemon-images/' + evolution.id + '.png'" [alt]="evolution.name"
+                        class="evolution-image">
+                    <span>#{{evolution.id}}</span>
+                    <h4 class="evolution-name">{{ evolution.name }}</h4>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
-
-
-
-
-    <!-- ------------------------------------------------------------------------------------- -->
+    </div>
 </div>
